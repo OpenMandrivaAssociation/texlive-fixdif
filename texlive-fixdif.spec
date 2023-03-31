@@ -1,6 +1,6 @@
 Name:		texlive-fixdif
 Version:	64835
-Release:	1
+Release:	2
 Summary:	Macros for typesetting differential operators
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fixdif
