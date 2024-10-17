@@ -3,7 +3,7 @@ Version:	66606
 Release:	1
 Summary:	Macros for typesetting differential operators
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fixdif
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/fixdif
 License:	lppl1.3c
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fixdif.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fixdif.doc.r%{version}.tar.xz
