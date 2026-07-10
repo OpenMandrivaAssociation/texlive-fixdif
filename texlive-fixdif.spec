@@ -1,41 +1,26 @@
-Name:		texlive-fixdif
-Version:	66606
-Release:	1
+%global tl_name fixdif
+%global tl_revision 66606
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.1
+Release:	%{tl_revision}.1
 Summary:	Macros for typesetting differential operators
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/fixdif
 License:	lppl1.3c
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fixdif.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fixdif.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fixdif.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fixdif.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fixdif.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fixdif.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package redefines the \d command in LaTeX and provides an
-interface to define new commands for differential operators. It
-is compatible with pdfTeX, XeTeX and LuaTeX, and can also be
-used with the unicode-math package.
+This package redefines the \d command in LaTeX and provides an interface
+to define new commands for differential operators. It is compatible with
+pdfTeX, XeTeX and LuaTeX, and can also be used with the unicode-math
+package.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/fixdif
-%{_texmfdistdir}/tex/latex/fixdif
-%doc %{_texmfdistdir}/doc/latex/fixdif
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
